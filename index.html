@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>keychain name generator</title>
+    <meta name="description" content="keychain name generator">
+
+    <link rel="stylesheet" type="text/css" href="index.css" />
+
+    <script src="https://maker.js.org/target/js/browser.maker.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bezier-js@2/bezier.js"></script>
+    <script src="opentype.js" type="text/javascript"></script>
+    <script src="index.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.css"/>
+    <script src="https://cdn.jsdelivr.net/gh/mdbassit/Coloris@latest/dist/coloris.min.js"></script>
+
+</head>
+
+<body>
+    <h1>Keychain Name Generator</h1>
+    <hr />
+
+    <main>
+        <div class="row">
+            <div class="column">
+                <div id="svg-render"></div>
+
+                <div class="textarea-container">
+                    <textarea id="output-svg" readonly></textarea>
+                </div>
+
+                <div id="svg-render-outline"></div>
+
+                <div class="textarea-container">
+                    <textarea id="outline-svg" readonly></textarea>
+                </div>
+            </div>
+            <div class="column">
+                <div class="input-holder">
+                    <label>Google font: <select id="font-select" class="input"></select></label>
+                </div>
+
+                <div class="input-holder">
+                    <label>(optional) upload font: <input id="font-upload" type="file" class="input" /></label>
+                    <button id="font-upload-remove" class="input">Remove</button>
+                </div>
+                
+                <div class="input-holder">
+                    <label>variant: <select id="font-variant" class="input"></select></label>
+                </div>
+
+                <div class="input-holder">
+                    <label>text: <input type="text" id="input-text" value="Verb" class="input-text input" /></label>
+
+                </div>
+                <div class="input-holder">
+                    <label>size: <input type="number" id="input-size" value="100" class="input-size input" /></label>
+                </div>
+
+                <div class="input-holder">
+                    <label>fill: <input type="checkbox" id="input-filled" checked /></label>
+                </div>
+
+                <div class="input-holder">
+                    <label>Fill: <input type="text" id="input-fill" value="#000" class="input-fill input" data-coloris /></label>
+                </div>
+
+                <div class="input-holder">
+                    <label>Stroke: <input type="text" id="input-stroke" value="#000" class="input-stroke input" data-coloris /></label>
+                </div>
+                <div class="input-holder">
+                    <label>Stroke Width: <input type="text" id="input-stroke-width" value="0.25mm" class="input-stroke-width input"/></label>
+                </div>
+            </div>
+        </div>
+    </main>
+    <input id="dummy" name="dummy" type="hidden">
+</body>
+
+</html>
