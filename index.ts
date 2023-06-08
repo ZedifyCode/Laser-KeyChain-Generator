@@ -211,15 +211,23 @@ class App {
         this.renderDiv.innerHTML = svg;
         this.outputTextarea.value = svg;
 
-        var outlineModel = makerjs.model.outline(textModel, 10);
-        var outline = makerjs.exporter.toSVG(outlineModel, {
-            fill: 'none',
-            stroke: stroke ? stroke : undefined, 
-            strokeWidth: strokeWidth ? strokeWidth : undefined,
-        });
+        var outerModel = makerjs.model.outline(textModel, 25);
+        var holeModel = new makerjs.models.Holes(6, [[-40, 50]]);
+        var holeOuterModel = new makerjs.models.Holes(25, [[-40, 50]]);
 
-        this.renderOutlineDiv.innerHTML = outline;
-        this.outlineTextarea.value = outline;
+        // create a keychain model
+        var keychainModel = {
+            models: {
+                text: textModel,
+                outer: makerjs.model.combineUnion(outerModel, holeOuterModel),
+                hole: holeModel,
+                outerh: holeOuterModel
+            }
+        }
+
+        var keychain = makerjs.exporter.toSVG(keychainModel);
+        this.renderOutlineDiv.innerHTML = keychain;
+        this.outlineTextarea.value = keychain;
     }
 
     render(
